@@ -18,6 +18,7 @@ from config import CONFIG
 
 # strict_slashes trip 调最后的/
 from sanic_.services.middleware import bp_middle
+from sanic_.services.views import IndexView
 from sanic_.services.ws import wc, ws_index
 
 app = Sanic('name', strict_slashes=True)
@@ -196,3 +197,6 @@ app.add_route(ws_index, uri='/heheda/ws')
 @app.exception(NotFound)
 def ignore_404s(request, exception):
     return text("Yep, I totally found the page: {}".format(request.url))
+
+
+app.add_route(IndexView.as_view(), '/views')
