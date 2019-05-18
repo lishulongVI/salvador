@@ -18,7 +18,7 @@ from config import CONFIG
 
 # strict_slashes trip 调最后的/
 from sanic_.services.middleware import bp_middle
-from sanic_.services.views import IndexView
+from sanic_.services.views import IndexView, SimpleView
 from sanic_.services.ws import wc, ws_index
 
 app = Sanic('name', strict_slashes=True)
@@ -200,3 +200,4 @@ def ignore_404s(request, exception):
 
 
 app.add_route(IndexView.as_view(), '/views')
+app.add_route(SimpleView.as_view(), '/views/stream')
