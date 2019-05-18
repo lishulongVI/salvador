@@ -6,5 +6,8 @@
 from sanic_ import app
 
 if __name__ == '__main__':
-    if __name__ == '__main__':
-        app.run(debug=app.config.DEBUG, host=app.config.HOST)
+    """
+    # web server 
+    # gunicorn server:app --bind 0.0.0.0:1337 --worker-class sanic.worker.GunicornWorker
+    """
+    app.run(debug=app.config.DEBUG, host=app.config.HOST, workers=4)
